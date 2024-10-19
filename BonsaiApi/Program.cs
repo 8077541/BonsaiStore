@@ -1,8 +1,9 @@
 using BonsaiStore.Interfaces;
 using BonsaiStore.Repositories;
 using BonsaiStore.Models;
-
-
+using BonsaiStore.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
+
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+
+
 var app = builder.Build();
 app.MapControllers();
 // Configure the HTTP request pipeline.
