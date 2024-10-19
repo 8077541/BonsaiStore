@@ -1,15 +1,13 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using BonsaiStore.Models;
 using BonsaiStore.Interfaces;
-
+using BonsaiStore.Helpers;
 
 namespace BonsaiStore.Controllers 
 {
 	[ApiController]
 	[Route("api/[controller]")]
-	public class ItemController
+	public class ItemController : ControllerBase
 	{
 		private IItemRepository _itemRepository;
 
@@ -19,51 +17,33 @@ namespace BonsaiStore.Controllers
 		}
 
 		[HttpGet]
-		public List<ItemModel> GetAllItems()
+		public async Task<IActionResult> GetAllItems(QueryItemObject query)
 		{
-			return _itemRepository.GetAllItems();
+			return Ok(await _itemRepository.GetAllItems(query));
 		}
 
 		[HttpGet("{id}")]
-		public ItemModel GetItemById(int id)
+		public async Task<IActionResult> GetItemById(int id)
 		{
-			return _itemRepository.GetItemById(id);
-		}
-
-		[HttpGet("category/{id}")]
-		public List<ItemModel> GetItemsByCategory(int id)
-		{
-			return _itemRepository.GetItemsByCategory(id);
-		}
-
-		[HttpGet("tag/{tag}")]
-		public List<ItemModel> GetItemsByTag(string tag)
-		{
-			return _itemRepository.GetItemsByTag(tag);
-		}
-
-		[HttpGet("search/{search}")]
-		public List<ItemModel> GetItemsBySearch(string search)
-		{
-			return _itemRepository.GetItemsBySearch(search);
+			return Ok(await _itemRepository.GetItemById(id));
 		}
 
 		[HttpPost]
-		public ItemModel CreateItem(ItemModel item)
+		public async Task<IActionResult> CreateItem(ItemModel item)
 		{
-			return _itemRepository.CreateItem(item);
+			return Ok(await _itemRepository.CreateItem(item));
 		}
 
 		[HttpPut]
-		public ItemModel UpdateItem(ItemModel item)
+		public async Task<IActionResult> UpdateItem(ItemModel item)
 		{
-			return _itemRepository.UpdateItem(item);
+			return Ok(await _itemRepository.UpdateItem(item));
 		}
 
 		[HttpDelete]
-		public ItemModel DeleteItem(ItemModel item)
+		public async Task<IActionResult> DeleteItem(ItemModel item)
 		{
-			return _itemRepository.DeleteItem(item);
+			return Ok(await _itemRepository.DeleteItem(item));
 		}
 	}
 }
