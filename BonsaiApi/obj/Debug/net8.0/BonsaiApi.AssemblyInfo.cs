@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BonsaiApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abd87b455932783e0ad8f5b6724ebd8cda6d0ea7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2a2772d8fd012651920500c1acca44f726addbb")]
 [assembly: System.Reflection.AssemblyProductAttribute("BonsaiApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BonsaiApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,8 +9,8 @@ namespace BonsaiStore.Models
         public string Description { get; set; } = string.Empty;
         public string Image { get; set; } = string.Empty;
         public double Price { get; set; }
-
         public List<String> Tags { get; set; } = new List<String>();
+        public DateTime AddedAt { get; set; } = DateTime.Now;
 
         // Navigation properties
 
