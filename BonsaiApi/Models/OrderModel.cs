@@ -17,7 +17,7 @@ namespace BonsaiStore.Models
         public string PaymentStatus { get; set; } = "Pending";
         public string PaymentMethod { get; set; } = "Cash";
         public string ShippingMethod { get; set; } = "Standard";
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+
         public List<ItemModel> Items { get; set; } = new List<ItemModel>();
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
